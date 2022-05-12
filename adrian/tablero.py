@@ -18,9 +18,9 @@ class Tablero:
         self.barcos.appned(Bote(eslora))
 
     def dado(self,coordenadas:tuple):
-        if self.cuerpo[[tuple]]=="O":
-            self.cuerpo[tuple]="X"
-            self.copia[tuple]="X"
+        if self.cuerpo[[coordenadas]]=="O":
+            self.cuerpo[coordenadas]="X"
+            self.copia[coordenadas]="X"
 
 
             for i in self.barcos:
