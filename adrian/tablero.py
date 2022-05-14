@@ -3,15 +3,17 @@ import random
 
 class Tablero:
     
-    cuerpo=np.full((10,10)," ")                                               ###Este sera el tablero donde iran nuestros barcos
-    copia=np.full((10,10)," ")                                                ###Este sera el tablero donde iran nuestros disparos al enemigo
+                                                  
                                                                             ### Idea magica, para comprobar si se ha disparado, cuando se dispare hacer esto
                                                                             ###         if coordenadas in tablero.copia == "": dispara ; si no vuelve a elegir coordenadas
     esloras=[4,3,3,2,2,2,1,1,1,1]                                           ### Es el numero de barcos con cada eslora : 1 de 4, 2 de 3, 3 de 2 , 4 de 1
-    barcos=[]
+    
     
     def __init__(self,nombre):
+        self.cuerpo=np.full((10,10)," ")                                                ###Este sera el tablero donde iran nuestros barcos
+        self.copia=np.full((10,10)," ")                                                 ###Este sera el tablero donde iran nuestros disparos al enemigo
         self.nombre=nombre
+        self.barcos=[]
         for i in self.esloras:
             self.annadirbarco(i)
     
@@ -23,7 +25,7 @@ class Tablero:
     def dado(self,coordenadas:tuple):
         if self.cuerpo[int(coordenadas[0]),int(coordenadas[1])]=="O":
             self.cuerpo[int(coordenadas[0]),int(coordenadas[1])]="X"
-            self.copia[int(coordenadas[0]),int(coordenadas[1])]="X"
+            
 
 
             for i in self.barcos:
@@ -46,7 +48,7 @@ class Tablero:
             else:
                 return 1
         else:
-            self.copia[int(coordenadas[0]),int(coordenadas[1])]="@"                                     ###Poner @ como agua en vez de -(?)
+            self.cuerpo[int(coordenadas[0]),int(coordenadas[1])]="@"                                     ###Poner @ como agua en vez de -(?)
             print("Agua")
             return 0
 
@@ -60,11 +62,14 @@ class Tablero:
         pass                                                                ### annadir pantalla final y menu sobre que hacer ahora
         
 class Bote:
-    coordenadas=[]                                                          ### contiene tuplas con coordenadas del barco
-    estado=None
-    veces=[0]                                                               ### veces tocado 
+                                                           ### contiene tuplas con coordenadas del barco
+    
+                                                                ### veces tocado 
     
     def __init__(self,eslora,tablero):
+        self.estado=None
+        self.coordenadas=[]
+        self.veces=[0]
         while True:
             x=self.buscar_posicion(eslora,tablero)                                  ###Si funciona devuelve lista con tuplas(coordenadas), si no, devuelve None
             if type(x)==list:

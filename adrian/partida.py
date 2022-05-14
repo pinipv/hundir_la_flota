@@ -37,10 +37,10 @@ while x==0:
     dado=maquina.dado(coord)
     if dado==1:
         jugador.copia[int(coord[0]),int(coord[1])]="X"
-        maquina.cuerpo[int(coord[0]),int(coord[1])]="X"
+        #maquina.cuerpo[int(coord[0]),int(coord[1])]="X"
     else:
         jugador.copia[int(coord[0]),int(coord[1])]="@"
-        maquina.cuerpo[int(coord[0]),int(coord[1])]="@"
+        #maquina.cuerpo[int(coord[0]),int(coord[1])]="@"
     ###Dentro de este if y este else se deberia cambiar tambien el tablero de la maquina
     
     time.sleep(3)
