@@ -1,5 +1,2 @@
-import tablero
-from tablero import Tablero,Bote
-tab= Tablero("Adrian")
-print(tab.nombre)
-tab.dado((1,2))
+coord=tuple(input("Introduce coordenadas de disparo--formato xy  Ejemplo x=2,y=3  ==> 23"))
+print(coord)

@@ -3,8 +3,8 @@ import random
 
 class Tablero:
     
-    cuerpo=np.full((10,10),"")                                               ###Este sera el tablero donde iran nuestros barcos
-    copia=np.full((10,10),"")                                                ###Este sera el tablero donde iran nuestros los disparos del enemigo
+    cuerpo=np.full((10,10)," ")                                               ###Este sera el tablero donde iran nuestros barcos
+    copia=np.full((10,10)," ")                                                ###Este sera el tablero donde iran nuestros disparos al enemigo
                                                                             ### Idea magica, para comprobar si se ha disparado, cuando se dispare hacer esto
                                                                             ###         if coordenadas in tablero.copia == "": dispara ; si no vuelve a elegir coordenadas
     esloras=[4,3,3,2,2,2,1,1,1,1]                                           ### Es el numero de barcos con cada eslora : 1 de 4, 2 de 3, 3 de 2 , 4 de 1
@@ -21,9 +21,9 @@ class Tablero:
         
 
     def dado(self,coordenadas:tuple):
-        if self.cuerpo[coordenadas[0]][coordenadas[1]]=="O":
-            self.cuerpo[coordenadas[0]][coordenadas[1]]="X"
-            self.copia[coordenadas[0]][coordenadas[1]]="X"
+        if self.cuerpo[int(coordenadas[0]),int(coordenadas[1])]=="O":
+            self.cuerpo[int(coordenadas[0]),int(coordenadas[1])]="X"
+            self.copia[int(coordenadas[0]),int(coordenadas[1])]="X"
 
 
             for i in self.barcos:
@@ -44,10 +44,11 @@ class Tablero:
             if self.comprobar_fin():
                 self.terminar_partida()
             else:
-                pass
+                return 1
         else:
-            self.copia[coordenadas]="@"                                     ###Poner @ como agua en vez de -(?)
+            self.copia[int(coordenadas[0]),int(coordenadas[1])]="@"                                     ###Poner @ como agua en vez de -(?)
             print("Agua")
+            return 0
 
     def comprobar_fin(self):
         if "X" in self.cuerpo:
