@@ -79,6 +79,8 @@ class Tablero:
                 return 1000                                 #Este valor indicaría que ha terminado la partida
             else:
                 return 1
+        elif self.tablero_propio[int(coordenadas[0]),int(coordenadas[1])] != " ":
+            return 2        
         else:
             self.tablero_propio[int(coordenadas[0]),int(coordenadas[1])] = "@"
             print('\n', "Agua", '\n')

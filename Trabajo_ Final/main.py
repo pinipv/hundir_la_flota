@@ -38,10 +38,12 @@ turno_jugador = "Persona"
 
 while x == 0:
     system("cls")
+
     '''Cuando comienza el juego e inicia la persona, se imprimen los tableros con los barcos colocados de forma aleatoria.
         Se le solicita unas coordenadas al jugador que se transformarán en tupla.
         estas coordenadas se comprobaran si corresponden a una posición de un barco en el tablero de la máquina y,
         en caso de ser correcto, se reescribirá con una X si no hay barco se reescribe con @ (agua)'''
+
     if turno_jugador == "Persona" : 
         Jugador_persona.imprimir_tableros_juego()
         print()
@@ -56,6 +58,9 @@ while x == 0:
         elif dado == 1:
             Jugador_persona.tablero_disparo[coord[0],coord[1]] = "X"     #actualizo el tablero si he dado disparo "X"
       
+        elif dado == 2:
+            print('Coordenada errónea')
+
         else:
             Jugador_persona.tablero_disparo[coord[0],coord[1]] = "X"     #para pintar el último disparo en mi tablero
             system("cls")
@@ -78,6 +83,9 @@ while x == 0:
         elif dado == 1:
             Jugador_maquina.tablero_disparo[coord[0],coord[1]]= "X"     #actualizo el tablero si he dado disparo "X"
       
+        elif dado == 2:
+            print('Coordenada errónea')
+        
         else:
             Jugador_maquina.tablero_disparo[coord[0],coord[1]]= "X"     #para pintar el último disparo en la máquina del jugador
             system("cls")
