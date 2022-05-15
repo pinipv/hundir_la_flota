@@ -19,6 +19,7 @@ print("""
 |  | |  | '  ''  ' |  ||  | \ `-' | |  | |  |        |  | \ '-'  |     |  .-' |  | ' '-' '   |  |   \ '-'  | 
 `--' `--'  `----'  `--''--'  `---'  `--' `--'        `--'  `--`--'     `--'   `--'  `---'    `--'    `--`--'                                                                                                                                                                                                                                                                                                   
           """)
+
 time.sleep(3)
 
 system("cls")
@@ -36,19 +37,19 @@ while x == 0:
     if turno_jugador == "Persona" : 
         Jugador_persona.imprimir_tableros_juego()
         print()
-        coord=tuple(input("Introduce coordenadas de disparo--formato xy  Ejemplo x=2,y=3  ==> 23 : "))
-        coord= (int(coord[0]),int(coord[1]))
+        coord = tuple(input("Introduce coordenadas de disparo--formato xy  Ejemplo x=2,y=3  ==> 23 : "))
+        coord = (int(coord[0]),int(coord[1]))
 
-        dado= Jugador_maquina.dado(coord)   #comprobamos en el tablero del oponente "maquina", si hemos dado a alguno de los barcos con las coordenada introducidas
+        dado = Jugador_maquina.dado(coord)   #comprobamos en el tablero del oponente "maquina", si hemos dado a alguno de los barcos con las coordenada introducidas
         if dado == 0:
-            Jugador_persona.tablero_disparo[coord[0],coord[1]]= "@"     #actualizo el tablero si he dado agua "@"
+            Jugador_persona.tablero_disparo[coord[0],coord[1]] = "@"     #actualizo el tablero si he dado agua "@"
             turno_jugador = "Maquina"
        
         elif dado == 1:
-            Jugador_persona.tablero_disparo[coord[0],coord[1]]= "X"     #actualizo el tablero si he dado disparo "X"
+            Jugador_persona.tablero_disparo[coord[0],coord[1]] = "X"     #actualizo el tablero si he dado disparo "X"
       
         else:
-            Jugador_persona.tablero_disparo[coord[0],coord[1]]= "X"     #para pintar el último disparo en mi tablero
+            Jugador_persona.tablero_disparo[coord[0],coord[1]] = "X"     #para pintar el último disparo en mi tablero
             system("cls")
             Jugador_persona.terminar_partida(Jugador_maquina)
            
