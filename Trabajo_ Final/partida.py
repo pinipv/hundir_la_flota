@@ -1,5 +1,4 @@
 import tablero as tb
-import funciones as f
 import time
 from os import system
 import numpy as np
