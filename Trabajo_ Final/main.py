@@ -23,16 +23,25 @@ time.sleep(3)
 
 system("cls")
 
+'''Se inician los tableros de la maquina y el del usuario tras solicitar el nombre de jugador'''
+
 Jugador_persona = ut.Tablero(input("Escribe tu nombre: ")) 
 Jugador_maquina = ut.Tablero("Maquina")
 
+'''Para inciar el juego declaramos una variable igual a 0 que será la que provoque que el juego continue hasta que el usuario decida salir '''
+
 x = 0
 
-turno_jugador = "Persona"   #El primer turno corresponde a la persona. Cada vez que acabe el turno, esta variable será actualizada con el oponente   
+'''Comienza el juego el jugador. Cada vez que acabe el turno, esta variable será actualizada con el oponente'''
+
+turno_jugador = "Persona"
 
 while x == 0:
     system("cls")
-
+    '''Cuando comienza el juego e inicia la persona, se imprimen los tableros con los barcos colocados de forma aleatoria.
+        Se le solicita unas coordenadas al jugador que se transformarán en tupla.
+        estas coordenadas se comprobaran si corresponden a una posición de un barco en el tablero de la máquina y,
+        en caso de ser correcto, se reescribirá con una X si no hay barco se reescribe con @ (agua)'''
     if turno_jugador == "Persona" : 
         Jugador_persona.imprimir_tableros_juego()
         print()
@@ -51,7 +60,9 @@ while x == 0:
             Jugador_persona.tablero_disparo[coord[0],coord[1]] = "X"     #para pintar el último disparo en mi tablero
             system("cls")
             Jugador_persona.terminar_partida(Jugador_maquina)
-           
+
+        '''Cuando el turno corresponde a la maquina, las coordenadas de disparo se ponen aleatorias.
+        Al igual que en el tablero de la persona, si da con un barco del jugador se reescribe con X y si no con @ (agua)'''       
     else:
         Jugador_maquina.imprimir_tableros_juego()
         coord= np.random.randint(10, size = 2)

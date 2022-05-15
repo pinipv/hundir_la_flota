@@ -152,7 +152,7 @@ class Bote:
 
             # Orientacion Norte
             if orientacion == 'N' and 0 <= fila - eslora + 1 < 10 and 'O' not in colindantes_Norte:
-                if ((fila-eslora)== -1):
+                if (fila-eslora) == -1:
                     tablero[fila::-1, columna] = 'O'         
                     for i in range(fila,-1,-1):
                         lista_coordenadas.append((i,columna))  
@@ -177,7 +177,7 @@ class Bote:
 
             # Orientacion Oeste
             elif orientacion == 'O' and 0 <= (columna - eslora +1) < 10 and 'O' not in colindantes_Oeste:
-                if ((columna-eslora)== -1):
+                if (columna-eslora) == -1:
                     tablero[fila, columna::-1] = 'O'         
                     for i in range(columna,-1,-1):
                         lista_coordenadas.append((fila,i))  
