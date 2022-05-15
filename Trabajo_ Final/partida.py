@@ -33,6 +33,7 @@ while x==0:
 
     if turno_jugador == "Persona" : 
         Jugador_persona.imprimir_tableros_juego()
+        print()
         coord=tuple(input("Introduce coordenadas de disparo--formato xy  Ejemplo x=2,y=3  ==> 23 : "))
         coord= (int(coord[0]),int(coord[1]))
 

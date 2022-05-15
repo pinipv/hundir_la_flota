@@ -46,20 +46,22 @@ class Tablero:
                 if coordenadas in i.coordenadas:
                     if i.veces+1 == len(i.coordenadas):
                         i.estado="hundido"
-                        print("Hundido")                                  ###Pondre esto para a la hora de imprimir el mensaje por pantalla hacer print("Barco",estado)
+                        print('\n', "Hundido")                                  ###Pondre esto para a la hora de imprimir el mensaje por pantalla hacer print("Barco",estado)
                         break            #para que no este iterando en todos los barcos una vez localizado el hundido
                     else:
                         i.veces+=1
                         i.estado="tocado"
-                        print("Tocado")                                     ###Pondre esto para a la hora de imprimir el mensaje por pantalla hacer print("Barco",estado)
+                        print('\n', "Tocado")                                     ###Pondre esto para a la hora de imprimir el mensaje por pantalla hacer print("Barco",estado)
                         break
             if self.comprobar_fin():
                 return 1000                                 #Este valor indicaría que ha terminado la partida _cbba
             else:
                 return 1
+        elif self.tablero_propio[int(coordenadas[0]),int(coordenadas[1])] == "X":
+            print('Ya habias tocado este barco, sigue buscando', '\n')
         else:
             self.tablero_propio[int(coordenadas[0]),int(coordenadas[1])]="@"                                     ###Poner @ como agua en vez de -(?)
-            print("Agua")
+            print('\n', "Agua")
             return 0
 
 
