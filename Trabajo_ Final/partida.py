@@ -2,6 +2,7 @@ import tablero as tb
 import time
 from os import system
 import numpy as np
+import bote as b
 
 print("""
                                                                                               
@@ -19,16 +20,17 @@ print("""
 `--' `--'  `----'  `--''--'  `---'  `--' `--'        `--'  `--`--'     `--'   `--'  `---'    `--'    `--`--'                                                                                                                                                                                                                                                                                                   
           """)
 time.sleep(3)
+
 system("cls")
 
 Jugador_persona = tb.Tablero(input("Escribe tu nombre: ")) 
 Jugador_maquina = tb.Tablero("Maquina")
 
-x=0
+x = 0
 
-turno_jugador= "Persona"   #El primer turno corresponde a la persona. Cada vez que acabe el turno, esta variable será actualizada con el oponente   
+turno_jugador = "Persona"   #El primer turno corresponde a la persona. Cada vez que acabe el turno, esta variable será actualizada con el oponente   
 
-while x==0:
+while x == 0:
     system("cls")
 
     if turno_jugador == "Persona" : 
@@ -67,4 +69,5 @@ while x==0:
             system("cls")
             Jugador_maquina.terminar_partida(Jugador_persona)
 
-    x= int(input("Salir? si == 1 no == 0 : "))
+    x= int(input("¿Desea salir del juego? Si= 1 No = 0 : "))
+print('¡Gracias por jugar!')
