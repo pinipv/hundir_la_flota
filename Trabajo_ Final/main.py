@@ -1,8 +1,7 @@
-import tablero as tb
+import utils as ut
 import time
 from os import system
 import numpy as np
-import bote as b
 
 print("""
                                                                                               
@@ -24,8 +23,8 @@ time.sleep(3)
 
 system("cls")
 
-Jugador_persona = tb.Tablero(input("Escribe tu nombre: ")) 
-Jugador_maquina = tb.Tablero("Maquina")
+Jugador_persona = ut.Tablero(input("Escribe tu nombre: ")) 
+Jugador_maquina = ut.Tablero("Maquina")
 
 x = 0
 
