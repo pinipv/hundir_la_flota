@@ -62,7 +62,10 @@ while x == 0:
             Jugador_persona.terminar_partida(Jugador_maquina)
 
         '''Cuando el turno corresponde a la maquina, las coordenadas de disparo se ponen aleatorias.
-        Al igual que en el tablero de la persona, si da con un barco del jugador se reescribe con X y si no con @ (agua)'''       
+        Al igual que en el tablero de la persona, si da con un barco del jugador se reescribe con X y si no con @ (agua)'''
+
+        x= int(input("¿Desea salir del juego? Si= 1 No = 0 : "))
+
     else:
         Jugador_maquina.imprimir_tableros_juego()
         coord= np.random.randint(10, size = 2)
@@ -80,5 +83,4 @@ while x == 0:
             system("cls")
             Jugador_maquina.terminar_partida(Jugador_persona)
 
-    x= int(input("¿Desea salir del juego? Si= 1 No = 0 : "))
 print('¡Gracias por jugar!')
