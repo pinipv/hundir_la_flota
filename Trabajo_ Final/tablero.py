@@ -29,11 +29,11 @@ class Tablero:
         print(tablero_titulos)
 
     def imprimir_tableros_juego(self):
-        print("___________________________________________________________")
-        print(f"Nombre del jugador :  {self.nombre}")
-        print("Tablero propio")
+        print("___________________________________________________________", '\n')
+        print(f"Nombre del jugador :  {self.nombre}", '\n')
+        print("Tablero propio", '\n')
         self.imprimir_tablero(self.tablero_propio)
-        print("Tablero de disparos")
+        print('\n', "Tablero de disparos", '\n')
         self.imprimir_tablero(self.tablero_disparo)
     
 
