@@ -7,7 +7,7 @@ class Tablero:
     '''La clase Tablero se crea para generar los tableros de los jugadores'''                                                              
     
     #esloras=[4,3,3,2,2,2,1,1,1,1]
-    esloras=[9]
+    esloras=[9,9,9,9,9,9,9,9,9]
     
     '''Dentro de la variable esloras hemos almacenado el numero de barcos con cada eslora:
     1 barco con 4 posiciones de eslora, 2 barcos de 3 posiciones, 3 barcos de dos posiciones y cuatro barcos de una posicion'''
@@ -40,9 +40,9 @@ class Tablero:
         tablero_titulos = np.insert(tablero, 0, titulo, axis= 0) 
         columna_titulo = np.append(["|"], titulo )
         tablero_titulos = np.insert(tablero_titulos, 0, columna_titulo, axis= 1) 
-        print(f"Nombre del jugador :  {self.nombre}", '\n')
+        print((f"Nombre del jugador :  {self.nombre}").title(), '\n')
         print(tablero_titulos)
-        print("________________________________________________", '\n')
+        print("_______________________________________________", '\n')
 
     def imprimir_tableros_juego(self):
 
@@ -50,7 +50,7 @@ class Tablero:
         y el tablero de disparos que corresponde al tablero de la máquina en el que iremos realizando disparos
         y se irán controlando aquellos barcos que han caido'''
 
-        print("________________________________________________", '\n')
+        print("_______________________________________________", '\n')
         print("Tablero propio", '\n')
         self.imprimir_tablero(self.tablero_propio)
         print("Tablero de disparos", '\n')
