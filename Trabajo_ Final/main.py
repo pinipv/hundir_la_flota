@@ -54,6 +54,11 @@ while z != "s":
             Jugador_persona.imprimir_tableros_juego()
             print()
             coord = tuple(input("Introduce coordenadas de disparo--formato xy  Ejemplo x=2,y=3  ==> 23 : "))
+            if coord[0] == 's' or coord[0] ==' S':
+                print('\n', '¡Gracias por jugar!', '\n')
+                time.sleep(1.5)
+                system.exit()
+            
             coord = (int(coord[0]),int(coord[1]))
 
             dado = Jugador_maquina.dado(coord)   #comprobamos en el tablero del oponente "maquina", si hemos dado a alguno de los barcos con las coordenada introducidas
@@ -97,4 +102,5 @@ while z != "s":
                 Jugador_maquina.terminar_partida(Jugador_persona)
                 break
 
-print('\n', '¡Gracias por jugar!', '\n')
+    print('\n', '¡Gracias por jugar!', '\n')
+    z = input('Si desea salir del programa pulse "s": ')
