@@ -30,13 +30,13 @@ Jugador_maquina = ut.Tablero("Maquina")
 
 '''Para inciar el juego declaramos una variable igual a 0 que será la que provoque que el juego continue hasta que el usuario decida salir '''
 
-x = 0
+x = '0'
 
 '''Comienza el juego el jugador. Cada vez que acabe el turno, esta variable será actualizada con el oponente'''
 
 turno_jugador = "Persona"
 
-while x == 0:
+while x != '1':
     system("cls")
 
     '''Cuando comienza el juego e inicia la persona, se imprimen los tableros con los barcos colocados de forma aleatoria.
@@ -59,7 +59,7 @@ while x == 0:
             Jugador_persona.tablero_disparo[coord[0],coord[1]] = "X"     #actualizo el tablero si he dado disparo "X"
       
         elif dado == 2:
-            print('Coordenada errónea')
+            print('\n', 'Coordenada errónea', '\n')
 
         else:
             Jugador_persona.tablero_disparo[coord[0],coord[1]] = "X"     #para pintar el último disparo en mi tablero
@@ -69,11 +69,11 @@ while x == 0:
         '''Cuando el turno corresponde a la maquina, las coordenadas de disparo se ponen aleatorias.
         Al igual que en el tablero de la persona, si da con un barco del jugador se reescribe con X y si no con @ (agua)'''
 
-        x= int(input("¿Desea salir del juego? Si= 1 No = 0 : "))
+        x= input("Si desea salir del juego pulse '1': ")
 
     else:
-        Jugador_maquina.imprimir_tableros_juego()
         coord= np.random.randint(10, size = 2)
+        coord = (int(coord[0]),int(coord[1]))
         
         dado= Jugador_persona.dado(coord)   #comprobamos en el tablero del oponente "persona", si hemos dado a alguno de los barcos con las coordenada introducidas
         if dado == 0:
@@ -84,11 +84,11 @@ while x == 0:
             Jugador_maquina.tablero_disparo[coord[0],coord[1]]= "X"     #actualizo el tablero si he dado disparo "X"
       
         elif dado == 2:
-            print('Coordenada errónea')
+            print('\n', 'Coordenada errónea', '\n')
         
         else:
             Jugador_maquina.tablero_disparo[coord[0],coord[1]]= "X"     #para pintar el último disparo en la máquina del jugador
             system("cls")
             Jugador_maquina.terminar_partida(Jugador_persona)
 
-print('¡Gracias por jugar!')
+print('\n', '¡Gracias por jugar!', '\n')
