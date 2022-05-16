@@ -41,7 +41,7 @@ class Tablero:
 
 
     def dado(self,coordenadas):
-        try:
+        try:                            #####MONICA
             if self.tablero_propio[coordenadas[0],coordenadas[1]]=="O":
                 self.tablero_propio[coordenadas[0],coordenadas[1]]="X"
                 
@@ -64,7 +64,7 @@ class Tablero:
                 self.tablero_propio[coordenadas[0],coordenadas[1]]="@"                                     ###Poner @ como agua en vez de -(?)
                 print("Agua")
                 return 0
-        except Exception as ex:
+        except Exception as ex:                           #### MONICA
             print(ex)
 
 

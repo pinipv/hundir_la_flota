@@ -28,18 +28,18 @@ x=0
 
 turno_jugador= "Persona"   #El primer turno corresponde a la persona. Cada vez que acabe el turno, esta variable será actualizada con el oponente   
 
-while x!='S' or x!='s':
-    system("cls")
+while x!='S' or x!='s':   ####MONICA
+    system("cls")         ####MONICA
 
     if turno_jugador == "Persona" : 
         Jugador_persona.imprimir_tableros_juego()
-        while True:
+        while True:       ###MONICA
             coord=tuple(input("Introduce coordenadas de disparo--formato xy  Ejemplo x=2,y=3  ==> 23 : "))
-            coord= (int(coord[0]),int(coord[1]))
-            if Jugador_persona.comprobar_posible_disparo(coord) == True:                
+            coord= (int(coord[0]),int(coord[1]))   ####MONICA
+            if Jugador_persona.comprobar_posible_disparo(coord) == True:                ###MONICA
                 break
             else:
-                print("Esas coordenadas ya han sido disparadas")
+                print("Esas coordenadas ya han sido disparadas")     ###MONICA
 
         dado= Jugador_maquina.dado(coord)   #comprobamos en el tablero del oponente "maquina", si hemos dado a alguno de los barcos con las coordenada introducidas
         if dado == 0:
@@ -58,8 +58,8 @@ while x!='S' or x!='s':
         Jugador_maquina.imprimir_tableros_juego()
         while True:
             coord= np.random.randint(10, size = 2)
-            coord= (int(coord[0]),int(coord[1]))
-            if Jugador_maquina.comprobar_posible_disparo(coord) == True:
+            coord= (int(coord[0]),int(coord[1]))   ####MONICA
+            if Jugador_maquina.comprobar_posible_disparo(coord) == True:   ####MONICA
                 break
         dado= Jugador_persona.dado(coord)   #comprobamos en el tablero del oponente "persona", si hemos dado a alguno de los barcos con las coordenada introducidas
         if dado == 0:
@@ -74,4 +74,4 @@ while x!='S' or x!='s':
             system("cls")
             Jugador_maquina.terminar_partida(Jugador_persona)
 
-    x= input("Para salir escribir 'S'  o  's'.  cualquier otra carácter continuará la partida : ")
+    x= input("Para salir escribir 'S'  o  's'.  cualquier otra carácter continuará la partida : ")   ###MONICA
