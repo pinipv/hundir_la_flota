@@ -1,13 +1,11 @@
 import numpy as np
 import random
-from xml.dom.pulldom import PROCESSING_INSTRUCTION
 
 class Tablero:
 
     '''La clase Tablero se crea para generar los tableros de los jugadores'''                                                              
     
-    #esloras=[4,3,3,2,2,2,1,1,1,1]
-    esloras=[9,9,9,9,9,9,9,9,9]
+    esloras=[4,3,3,2,2,2,1,1,1,1]
     
     '''Dentro de la variable esloras hemos almacenado el numero de barcos con cada eslora:
     1 barco con 4 posiciones de eslora, 2 barcos de 3 posiciones, 3 barcos de dos posiciones y cuatro barcos de una posicion'''
