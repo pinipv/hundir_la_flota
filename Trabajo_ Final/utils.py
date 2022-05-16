@@ -98,10 +98,11 @@ class Tablero:
     def terminar_partida(self,jugador_oponente):
 
         '''Una vez que se han derribado todos los barcos, se indica quién ha ganado la partida y se muestran ambos tableros'''
-
-        print(f"Enhorabuena has ganado la partida {self.nombre} ")
+        if self.nombre == 'Maquina':
+            print('\n', "¡Has perdido!", '\n')
+        else:
+            print(f"Enhorabuena has ganado la partida {self.nombre} ")
         self.imprimir_tableros_juego()
-        print("Se imprimen también los tableros del oponente")
         jugador_oponente.imprimir_tableros_juego()
 
 class Bote:
