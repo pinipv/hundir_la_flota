@@ -6,7 +6,8 @@ class Tablero:
 
     '''La clase Tablero se crea para generar los tableros de los jugadores'''                                                              
     
-    esloras=[4,3,3,2,2,2,1,1,1,1]
+    #esloras=[4,3,3,2,2,2,1,1,1,1]
+    esloras=[9]
     
     '''Dentro de la variable esloras hemos almacenado el numero de barcos con cada eslora:
     1 barco con 4 posiciones de eslora, 2 barcos de 3 posiciones, 3 barcos de dos posiciones y cuatro barcos de una posicion'''
@@ -39,7 +40,9 @@ class Tablero:
         tablero_titulos = np.insert(tablero, 0, titulo, axis= 0) 
         columna_titulo = np.append(["|"], titulo )
         tablero_titulos = np.insert(tablero_titulos, 0, columna_titulo, axis= 1) 
+        print(f"Nombre del jugador :  {self.nombre}", '\n')
         print(tablero_titulos)
+        print("________________________________________________", '\n')
 
     def imprimir_tableros_juego(self):
 
@@ -47,11 +50,10 @@ class Tablero:
         y el tablero de disparos que corresponde al tablero de la máquina en el que iremos realizando disparos
         y se irán controlando aquellos barcos que han caido'''
 
-        print("___________________________________________________________", '\n')
-        print(f"Nombre del jugador :  {self.nombre}", '\n')
+        print("________________________________________________", '\n')
         print("Tablero propio", '\n')
         self.imprimir_tablero(self.tablero_propio)
-        print('\n', "Tablero de disparos", '\n')
+        print("Tablero de disparos", '\n')
         self.imprimir_tablero(self.tablero_disparo)
     
     def dado(self, coordenadas:tuple):
@@ -101,9 +103,9 @@ class Tablero:
         if self.nombre == 'Maquina':
             print('\n', "¡Has perdido!", '\n')
         else:
-            print(f"Enhorabuena has ganado la partida {self.nombre} ")
-        self.imprimir_tableros_juego()
-        jugador_oponente.imprimir_tableros_juego()
+            print('\n', (f"¡ENHORABUENA, HAS GANADO LA PARTIDA {self.nombre}!").upper(), '\n')
+        self.imprimir_tablero(self.tablero_propio)
+        jugador_oponente.imprimir_tablero(jugador_oponente.tablero_propio)
 
 class Bote:
     '''En esta clase se crean todos los barcos y la posicion en la que se colocaran aleatoriamente'''
