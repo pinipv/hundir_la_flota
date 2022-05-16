@@ -1,5 +1,4 @@
 import tablero as tb
-import funciones as f
 import time
 from os import system
 import numpy as np
@@ -29,13 +28,18 @@ x=0
 
 turno_jugador= "Persona"   #El primer turno corresponde a la persona. Cada vez que acabe el turno, esta variable será actualizada con el oponente   
 
-while x==0:
+while x!='S' or x!='s':
     system("cls")
 
     if turno_jugador == "Persona" : 
         Jugador_persona.imprimir_tableros_juego()
-        coord=tuple(input("Introduce coordenadas de disparo--formato xy  Ejemplo x=2,y=3  ==> 23 : "))
-        coord= (int(coord[0]),int(coord[1]))
+        while True:
+            coord=tuple(input("Introduce coordenadas de disparo--formato xy  Ejemplo x=2,y=3  ==> 23 : "))
+            coord= (int(coord[0]),int(coord[1]))
+            if Jugador_persona.comprobar_posible_disparo(coord) == True:                
+                break
+            else:
+                print("Esas coordenadas ya han sido disparadas")
 
         dado= Jugador_maquina.dado(coord)   #comprobamos en el tablero del oponente "maquina", si hemos dado a alguno de los barcos con las coordenada introducidas
         if dado == 0:
@@ -52,8 +56,11 @@ while x==0:
            
     else:
         Jugador_maquina.imprimir_tableros_juego()
-        coord= np.random.randint(10, size = 2)
-        
+        while True:
+            coord= np.random.randint(10, size = 2)
+            coord= (int(coord[0]),int(coord[1]))
+            if Jugador_maquina.comprobar_posible_disparo(coord) == True:
+                break
         dado= Jugador_persona.dado(coord)   #comprobamos en el tablero del oponente "persona", si hemos dado a alguno de los barcos con las coordenada introducidas
         if dado == 0:
             Jugador_maquina.tablero_disparo[coord[0],coord[1]]= "@"     #actualizo el tablero si he dado agua "@"
@@ -67,4 +74,4 @@ while x==0:
             system("cls")
             Jugador_maquina.terminar_partida(Jugador_persona)
 
-    x= int(input("Salir? si == 1 no == 0 : "))
+    x= input("Para salir escribir 'S'  o  's'.  cualquier otra carácter continuará la partida : ")

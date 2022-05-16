@@ -1,3 +1,4 @@
+from ast import Try
 import numpy as np
 import bote as b
 
@@ -28,6 +29,7 @@ class Tablero:
         tablero_titulos = np.insert(tablero_titulos, 0, columna_titulo, axis= 1) 
         print(tablero_titulos)
 
+
     def imprimir_tableros_juego(self):
         print("___________________________________________________________")
         print(f"Nombre del jugador :  {self.nombre}")
@@ -38,29 +40,39 @@ class Tablero:
     
 
 
-    def dado(self,coordenadas:tuple):
-        if self.tablero_propio[int(coordenadas[0]),int(coordenadas[1])]=="O":
-            self.tablero_propio[int(coordenadas[0]),int(coordenadas[1])]="X"
-            
-            for i in self.barcos:
-                if coordenadas in i.coordenadas:
-                    if i.veces+1 == len(i.coordenadas):
-                        i.estado="hundido"
-                        print("Hundido")                                  ###Pondre esto para a la hora de imprimir el mensaje por pantalla hacer print("Barco",estado)
-                        break            #para que no este iterando en todos los barcos una vez localizado el hundido
-                    else:
-                        i.veces+=1
-                        i.estado="tocado"
-                        print("Tocado")                                     ###Pondre esto para a la hora de imprimir el mensaje por pantalla hacer print("Barco",estado)
-                        break
-            if self.comprobar_fin():
-                return 1000                                 #Este valor indicaría que ha terminado la partida _cbba
+    def dado(self,coordenadas):
+        try:
+            if self.tablero_propio[coordenadas[0],coordenadas[1]]=="O":
+                self.tablero_propio[coordenadas[0],coordenadas[1]]="X"
+                
+                for i in self.barcos:
+                    if coordenadas in i.coordenadas:
+                        if i.veces+1 == len(i.coordenadas):
+                            i.estado="hundido"
+                            print("Hundido")                                  ###Pondre esto para a la hora de imprimir el mensaje por pantalla hacer print("Barco",estado)
+                            break            #para que no este iterando en todos los barcos una vez localizado el hundido
+                        else:
+                            i.veces+=1
+                            i.estado="tocado"
+                            print("Tocado")                                     ###Pondre esto para a la hora de imprimir el mensaje por pantalla hacer print("Barco",estado)
+                            break
+                if self.comprobar_fin():
+                    return 1000                                 #Este valor indicaría que ha terminado la partida _cbba
+                else:
+                    return 1
             else:
-                return 1
+                self.tablero_propio[coordenadas[0],coordenadas[1]]="@"                                     ###Poner @ como agua en vez de -(?)
+                print("Agua")
+                return 0
+        except Exception as ex:
+            print(ex)
+
+
+    def comprobar_posible_disparo(self,coordenadas):
+        if self.tablero_disparo[coordenadas[0], coordenadas[1]] == " ":
+            return True #puede disparar
         else:
-            self.tablero_propio[int(coordenadas[0]),int(coordenadas[1])]="@"                                     ###Poner @ como agua en vez de -(?)
-            print("Agua")
-            return 0
+            return False #ha sido disparado, hay que pedir otras coordenadas
 
 
     def comprobar_fin(self):                                            ##Comprobar si queda alguna coordenada sin golpear
@@ -69,6 +81,7 @@ class Tablero:
         else:
             return True
     
+
     def terminar_partida(self,jugador_oponente):
         print(f"Enhorabuena has ganado la partida {self.nombre} ")
         self.imprimir_tableros_juego()
