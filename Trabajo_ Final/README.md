@@ -28,6 +28,6 @@ Si se desea salir del juego en cualquier momento, solo hay que marcar 'S' de Sal
 
 #### **Autores:**
 
-+ Adrian Pinilla
++ Adrián Pinilla
 + Claudia Balderas
-+ Monica Garrido
++ Mónica Garrido
