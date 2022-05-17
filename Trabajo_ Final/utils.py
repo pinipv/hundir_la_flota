@@ -68,12 +68,12 @@ class Tablero:
                 if coordenadas in i.coordenadas:
                     if i.veces+1 == len(i.coordenadas):
                         i.estado = "hundido"
-                        print('\n', "Hundido", '\n')
+                        print('\nHundido', '\n')
                         break
                     else:
                         i.veces += 1
                         i.estado = "tocado"
-                        print('\n', "Tocado", '\n')
+                        print('\nTocado', '\n')
                         break
             if self.comprobar_fin():
                 return 1000                                 #Este valor indicaría que ha terminado la partida
@@ -83,7 +83,7 @@ class Tablero:
             return 2        
         else:
             self.tablero_propio[int(coordenadas[0]),int(coordenadas[1])] = "@"
-            print('\n', "Agua", '\n')
+            print('\nAgua', '\n')
             return 0
 
     def comprobar_fin(self):
