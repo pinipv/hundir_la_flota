@@ -7,9 +7,9 @@ En este proyecto hemos reproducido el juego en el que dos jugadores, en este cas
 
 Cada vez que se dispara, se busca si ahí hay un barco.
 
-En caso de ser positivo se marca como *Tocado* y cuando todas las posiciones del barco han sido eliminadas, el estado será *Hundido*.
+En caso de ser positivo se marca como ***Tocado*** y cuando todas las posiciones del barco han sido eliminadas, el estado será ***Hundido***.
 
-Si no se toca el barco, el programa devuelve *Agua*.
+Si no se toca el barco, el programa devuelve ***Agua***.
 
 Gana el primero que derribe todos los barcos del contrario.
 
