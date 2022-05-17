@@ -23,8 +23,9 @@ Si se desea salir del juego en cualquier momento, solo hay que marcar 'S' de Sal
 
 + Numpy
 + Time
-+ system
++ os
 + sys
++ Random
 
 ---
 
