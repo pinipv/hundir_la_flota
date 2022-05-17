@@ -1,5 +1,5 @@
-import tablero as tb
-import funciones as f
+import utils as ut
+import carpeta_de_trabajo.constants as cs
 import time
 from os import system
 import numpy as np
@@ -22,8 +22,8 @@ print("""
 time.sleep(3)
 system("cls")
 
-Jugador_persona = tb.Tablero(input("Escribe tu nombre: ")) 
-Jugador_maquina = tb.Tablero("Maquina")
+Jugador_persona = ut.Tablero(input("Escribe tu nombre: ")) 
+Jugador_maquina = ut.Tablero("Maquina")
 
 x=0
 
