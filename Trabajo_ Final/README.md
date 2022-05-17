@@ -5,7 +5,7 @@ El juego de hundir la flota es muy popular desde hace muchos años.
 
 En este proyecto hemos reproducido el juego en el que dos jugadores, en este caso uno de ellos la máquina, tienen posicionados 10 barcos de distintos tamaños y deben lanzar disparos al tablero del contrario para localizar sus barcos.
 
-Este lanzamiento se realiza introduciendo dos coordenadas, primero filas y luego columnas. No es necesario dejar espacios en blanco ni marcar cualquier otro caracter para separar las coodenadas. **Ej. Fila: 4, Columna:2 ---> marcamos 42**
+Este lanzamiento se realiza introduciendo dos coordenadas, primero filas y luego columnas. No es necesario dejar espacios en blanco ni marcar cualquier otro caracter para separar las coodenadas. **Ej. Fila: 4, Columna: 2 ---> marcamos 42**
 
 Cada vez que se dispara, se busca si ahí hay un barco.
 
